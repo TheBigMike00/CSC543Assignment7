@@ -145,17 +145,17 @@ string SHA256::pleasePad(string bitMessage)
 
     bool shouldContinue = true;
     int count = 0;
+    string pad = "1";
 
     while (shouldContinue)
     {
         if ((count + 64 + length + 1) % 512 == 0)
         {
-            string temp = "1";
             for (int i = 0; i < count; i++)
-                temp = temp + "0";
+                pad += "0";
 
             shouldContinue = false;
-            output += temp;
+            output += pad;
         }
         else
             count++;
