@@ -92,7 +92,7 @@ SHA256::SHA256(string theMessage)
 
             h = g;
             g = f;
-            e = e;
+            f = e;
             e = d + int(bitset<32>(temp1).to_ulong());
             d = c;
             c = b;
@@ -260,9 +260,9 @@ string SHA256::s2(string message)
     //2nd s1 of pseudo -> S1 := (e rightrotate 6) xor (e rightrotate 11) xor (e rightrotate 25)
     string rr6 = rotateRight(message, 6);
     string rr11 = rotateRight(message, 11);
-    string rr10 = rotateRight(message, 25);
+    string rr25 = rotateRight(message, 25);
 
-    return (std::bitset<32>(rr6) ^ std::bitset<32>(rr11) ^ std::bitset<32>(rr10)).to_string();
+    return (std::bitset<32>(rr6) ^ std::bitset<32>(rr11) ^ std::bitset<32>(rr25)).to_string();
 }
 
 string SHA256::s3(string message)
